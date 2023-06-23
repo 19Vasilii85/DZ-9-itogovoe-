@@ -4,16 +4,23 @@ int number = Convert.ToInt32(Console.ReadLine());
 int min_number = 1;
 void recursionNumber(int n, int min)
 {
-    if(number<0 || number==min_number)
+    if (min > n)
     {
-        Console.WriteLine("Введенное число меньше минимального!");
+        return;
     }
     else
     {
-        Console.WriteLine($"Рекурсия числа {number}, равна: ");
-        for(int i=number; i>=min;i--){
-            Console.Write(i + " ");
-        }
+        recursionNumber(n, min + 1);
+        Console.Write(min + " ");
     }
 }
-recursionNumber(number, min_number);
+if(number<0)
+{
+    Console.WriteLine("Введенное число меньше 0!");
+
+}
+else
+{
+       Console.WriteLine($"Рекурсия числа {number}, равна: ");
+    recursionNumber(number, min_number);
+}
